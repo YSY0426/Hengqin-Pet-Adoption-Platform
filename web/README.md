@@ -1,30 +1,46 @@
-### 学习文档
+# Frontend Documentation
 
+## 🔧 Features
 
-#### 部署步骤
+- Vite-based development and build  
+- Modular API, view, and route structure  
+- ESLint code quality enforcement  
+- CDN-based Ant Design Vue integration  
+- Environment-based configuration management  
 
-1. 修改constants.ts中的BASE_URL
-2. vite build
-3. 将dist部署到nginx
+---
 
+## 🚀 Deployment Steps
 
-#### 配置解释
+1. **Modify the base URL** in `constants.ts`:  
+   - Set the appropriate API endpoint for `BASE_URL`.
 
-1. env.development 开发环境配置
-2. eslintrc.js 代码规范化提示
-3. vite.config.js vite 开发服务器配置
+2. **Build the project** using Vite:
+   ```bash
+   vite build
+   ```
 
+3. **Deploy the `dist` folder** to your Nginx server.
 
+---
 
-### 开发步骤
+## ⚙️ Configuration Overview
 
-共分三步：开发接口、开发view、开发路由
+- `env.development`: Environment variables for development.
+- `vite.config.js`: Vite configuration including aliases and server settings.
+- `.eslintrc.js`: ESLint configuration for code formatting and linting rules.
 
-第一步：开发接口
+---
 
-在api文件夹下，新建请求文件，然后写入api请求代码，如下
+## 🛠️ Development Guide
 
-```
+Frontend development is divided into three main steps:
+
+### 1. API Development
+
+Create a new file under the `api` directory and define your requests, e.g.:
+
+```ts
 import { get, post } from '/@/utils/http/axios';
 
 enum URL {
@@ -34,55 +50,57 @@ enum URL {
   delete = '/myapp/admin/notice/delete',
 }
 
-const listApi = async (params: any) => get<any>({ url: URL.list, params: params, data: {}, headers: {} });
-const createApi = async (data: any) =>
-  post<any>({
-    url: URL.create,
-    params: {},
-    data: data,
-    headers: { 'Content-Type': 'multipart/form-data;charset=utf-8' },
-  });
-const updateApi = async (params: any, data: any) =>
-  post<any>({
-    url: URL.update,
-    params: params,
-    data: data,
-    headers: { 'Content-Type': 'multipart/form-data;charset=utf-8' },
-  });
-const deleteApi = async (params: any) => post<any>({ url: URL.delete, params: params, headers: {} });
+const listApi = async (params: any) => get<any>({ url: URL.list, params });
+const createApi = async (data: any) => post<any>({
+  url: URL.create,
+  data,
+  headers: { 'Content-Type': 'multipart/form-data;charset=utf-8' },
+});
+const updateApi = async (params: any, data: any) => post<any>({
+  url: URL.update,
+  params,
+  data,
+  headers: { 'Content-Type': 'multipart/form-data;charset=utf-8' },
+});
+const deleteApi = async (params: any) => post<any>({ url: URL.delete, params });
 
 export { listApi, createApi, updateApi, deleteApi };
-
 ```
 
-第二步：开发view页面
+### 2. View Development
 
-在view文件夹下，新增页面vue文件，然后写入页面代码，比如user.vue
+Create a new `.vue` file in the `views` folder and implement your UI logic.
 
-第三步：设置路由
+### 3. Route Configuration
 
-在router的root.js文件里面配置路由地址。如下
+Update `router/root.js` with the corresponding route:
 
+```js
+{ path: 'overview', name: 'overview', component: () => import('/@/views/overview.vue') },
+{ path: 'asset', name: 'asset', component: () => import('/@/views/asset.vue') },
+{ path: 'thing', name: 'thing', component: () => import('/@/views/thing.vue') },
+{ path: 'comment', name: 'comment', component: () => import('/@/views/comment.vue') },
+{ path: 'user', name: 'user', component: () => import('/@/views/user.vue') },
 ```
-      { path: 'overview', name: 'overview', component: () => import('/@/views/overview.vue') },
-      { path: 'asset', name: 'asset', component: () => import('/@/views/asset.vue') },
-      { path: 'thing', name: 'thing', component: () => import('/@/views/thing.vue') },
-      { path: 'comment', name: 'comment', component: () => import('/@/views/comment.vue') },
-      { path: 'user', name: 'user', component: () => import('/@/views/user.vue') },
-```
 
-即可
+---
 
-#### 常见问题
+## ❓ Common Issues
 
-##### 变量
-https://blog.csdn.net/qq_41636947/article/details/117907448
+- **Environment variables**: Refer to [this guide](https://blog.csdn.net/qq_41636947/article/details/117907448) for help.
+- **Ant Design Vue CSS**:
+  - Use CDN links in `index.html`:
+    ```
+    https://cdn.jsdelivr.net/npm/ant-design-vue@3.2.20/dist/
+    https://cdn.staticfile.org/ant-design-vue/3.2.20/antd.min.css
+    ```
 
-##### antd的css引入方式
-在index.html里面引入的cdn
+---
 
-##### cdn
-https://cdn.jsdelivr.net/npm/ant-design-vue@3.2.20/dist/
-https://cdn.staticfile.org/ant-design-vue/3.2.20/antd.min.css
+## 📄 Notes
 
-#### public文件夹内容在build后会自动打到dist中
+- Files in the `public` directory will automatically be included in the `dist` output after build.
+
+---
+
+如果你希望我将其导出为 Markdown 或 PDF 文件也可以告诉我。需要进一步美化或者添加logo、结构图等，也可以继续完善。
