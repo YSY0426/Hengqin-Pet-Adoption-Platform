@@ -1,19 +1,19 @@
 <template>
   <div class="footer-view">
     <div class="foot-link-box flex-view">
-      <a href="" class="foot-link" target="_blank">系统文档</a>
+      <a href="" class="foot-link" target="_blank"></a>
       <div class="link-split"></div>
-      <a href="/admin" class="foot-link" target="_blank">后台管理</a>
+      <a href="/admin" class="foot-link" target="_blank"></a>
       <div class="link-split"></div>
-      <a href="" class="foot-link" target="_blank">关于我们</a>
+      <a href="" class="foot-link" target="_blank"></a>
     </div>
     <div class="footer-infos">
       <span>
-        <a style="color: rgb(174, 174, 174);">京ICP备12345678号</a>
+        <a style="color: rgb(174, 174, 174);"></a>
       </span>
-      <span>&nbsp;&nbsp;京公网安备123456&nbsp;&nbsp;新出发京零字第东123456号&nbsp;&nbsp;统一社会信用代码 123456789</span>
+      <span></span>
     </div>
-    <div class="address">2022-2023 © 北京代码演示 · All Rights Reserved</div>
+    <div class="address">横琴宠物领养平台测试版 · All Rights Reserved</div>
   </div>
 </template>
 
