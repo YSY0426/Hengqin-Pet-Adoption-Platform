@@ -23,5 +23,34 @@ export default {
 }
 </script>
 <style scoped lang="less">
+.portal {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #ffffff;
+  color: #000000;
+}
 
+button, input, textarea, .ant-input, .ant-btn {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #f5f5f5;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.ant-btn-primary {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  border-radius: 0 !important;
+}
+
+a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+::placeholder {
+  color: #666666;
+}
 </style>
