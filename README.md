@@ -32,7 +32,7 @@ The system is divided into two main modules: the **Admin Backend** and the **Use
 Hengqin-Pet_Adoption/
 ├── server/              # Backend (Spring Boot)
 │   ├── src/
-│   │   ├── main/java/com.gk.study/
+│   │   ├── main/java/com/gk/study/
 │   │   │   ├── commom         # Utility classes
 │   │   │   ├── controller/    # API controllers
 │   │   │   ├── service/       # Business logic
